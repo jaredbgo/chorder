@@ -56,57 +56,69 @@ def key_finder(note, scale='major'):
 	else:
 		raise Exception('Scale must be one of {}'.format(scale_list))
 
+def run_cl_app():
+	key = input("Enter the root: ")
+
+	scale = input("Enter the scale: ")
+
+	try:
+		chords = key_finder(key, scale=scale)
+	except Exception as e:
+		print('')
+		print('There was a problem with your request: {}'.format(e))
+		print('')
+		print("Let's try again!")
+		print('')
+		return True
+
+	scale_name = list(chords.keys())[0]
+
+	scale = chords[scale_name]
+
+	print('')
+	print('---------------------------')
+	print('**********CHORDER**********')
+	print('---------------------------')
+	print('')
+
+	print(scale_name + ':')
+	print('')
+
+	for each in scale:
+		print(each)
+	print('')
+
+	again = input("Would you like another key? Enter yes or no: ")
+	again = again.lower()
+	while again not in ['yes', 'no']:
+		print("I'm sorry, response must be in {}".format(['yes', 'no']))
+		print('')
+		again = input("Would you like another key? Enter yes or no: ")
+		again = again.lower()
+
+	if again == 'yes':
+		print('')
+		print ("OK, let's do it again!")
+		print('')
+		return True
+	else:
+		print('')
+		print ("Thanks for using Chorder!")
+		print('')
+		return False
+
+
 def main():
 
-	keep_going = True
 	print("")
 	print("Welcome to Chorder!")
 	print("")
-
+	keep_going = run_cl_app()
 
 	while keep_going:
+		keep_going = run_cl_app()
 
-		key = input("Enter the root: ")
 
-		scale = input("Enter the scale: ")
-
-		chords = key_finder(key, scale=scale)
-
-		scale_name = list(chords.keys())[0]
-
-		scale = chords[scale_name]
-
-		print('')
-		print('---------------------------')
-		print('**********CHORDER**********')
-		print('---------------------------')
-		print('')
-
-		print(scale_name + ':')
-		print('')
-
-		for each in scale:
-			print(each)
-		print('')
-
-		again = input("Would you like another key? Enter yes or no: ")
-		again = again.lower()
-		while again not in ['yes', 'no']:
-			print("I'm sorry, response must be in {}".format(['yes', 'no']))
-			print('')
-			again = input("Would you like another key? Enter yes or no: ")
-			again = again.lower()
-
-		if again == 'yes':
-			keep_going = True
-			print('')
-			print ("OK, let's do it again!")
-			print('')
-		else:
-			keep_going = False
-			print('')
-			print ("Thanks for using Chorder!")
-			print('')
 
 if __name__ == '__main__':
 	main()
