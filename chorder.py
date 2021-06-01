@@ -71,11 +71,18 @@ def main():
 
 	scale = chords[scale_name]
 
+	print('')
+	print('---------------------------')
+	print('**********CHORDER**********')
+	print('---------------------------')
+	print('')
+
 	print(scale_name + ':')
+	print('')
 
 	for each in scale:
 		print(each)
-
+	print('')
 
 if __name__ == '__main__':
 	main()
