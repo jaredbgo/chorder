@@ -21,10 +21,7 @@ def key_finder(note, scale='major'):
 	if len(note) > 2:
 		raise Exception('Note must be at most 2 characters')
 
-	elif note not in ','.join(notes):
-		raise Exception('Note must be in {}'.format(valid_notes))
-
-	elif note == 'b':
+	elif note not in valid_notes:
 		raise Exception('Note must be in {}'.format(valid_notes))
 
 	if note in notes:
