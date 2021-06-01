@@ -3,6 +3,13 @@ import numpy as np
 
 def key_finder(note, scale='major'):
 	notes = ['A', 'A#/Bb', 'B/Cb', 'C', 'C#/Db', 'D', 'D#/Eb', 'E/Fb', 'F', 'F#/Gb', 'G', 'G#/Ab']
+	valid_notes = []
+	for each in notes:
+		if '/' in each:
+			valid_notes += each.split('/')
+		else:
+			valid_notes.append(each)
+
 	major_interval = np.cumsum([0, 2, 2, 1, 2, 2, 2, 1])
 	minor_interval = np.cumsum([0, 2, 1, 2, 2, 1, 2, 2])
 	scale_list = ['major', 'minor']
@@ -15,10 +22,10 @@ def key_finder(note, scale='major'):
 		raise Exception('Note must be at most 2 characters')
 
 	elif note not in ','.join(notes):
-		raise Exception('Note must be in {}'.format(notes))
+		raise Exception('Note must be in {}'.format(valid_notes))
 
 	elif note == 'b':
-		raise Exception('Note must be in {}'.format(notes))
+		raise Exception('Note must be in {}'.format(valid_notes))
 
 	if note in notes:
 		idx = notes.index(note)
