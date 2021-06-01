@@ -22,7 +22,7 @@ def key_finder(note, scale='major'):
 
 	else:
 		for i, each in enumerate(notes):
-			if note in each:
+			if note in each.split('/'):
 				idx = i
 
 				break
@@ -65,8 +65,6 @@ def main():
 
 	for each in scale:
 		print(each)
-
-
 
 
 if __name__ == '__main__':
