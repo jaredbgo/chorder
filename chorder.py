@@ -17,6 +17,9 @@ def key_finder(note, scale='major'):
 	elif note not in ','.join(notes):
 		raise Exception('Note must be in {}'.format(notes))
 
+	elif note == 'b':
+		raise Exception('Note must be in {}'.format(notes))
+
 	if note in notes:
 		idx = notes.index(note)
 
