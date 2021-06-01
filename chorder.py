@@ -58,28 +58,55 @@ def key_finder(note, scale='major'):
 
 def main():
 
-	key = input("Enter the key: ")
+	keep_going = True
+	print("")
+	print("Welcome to Chorder!")
+	print("")
 
-	scale = input("Enter the scale: ")
 
-	chords = key_finder(key, scale=scale)
+	while keep_going:
 
-	scale_name = list(chords.keys())[0]
+		key = input("Enter the root: ")
 
-	scale = chords[scale_name]
+		scale = input("Enter the scale: ")
 
-	print('')
-	print('---------------------------')
-	print('**********CHORDER**********')
-	print('---------------------------')
-	print('')
+		chords = key_finder(key, scale=scale)
 
-	print(scale_name + ':')
-	print('')
+		scale_name = list(chords.keys())[0]
 
-	for each in scale:
-		print(each)
-	print('')
+		scale = chords[scale_name]
+
+		print('')
+		print('---------------------------')
+		print('**********CHORDER**********')
+		print('---------------------------')
+		print('')
+
+		print(scale_name + ':')
+		print('')
+
+		for each in scale:
+			print(each)
+		print('')
+
+		again = input("Would you like another key? Enter yes or no: ")
+		again = again.lower()
+		while again not in ['yes', 'no']:
+			print("I'm sorry, response must be in {}".format(['yes', 'no']))
+			print('')
+			again = input("Would you like another key? Enter yes or no: ")
+			again = again.lower()
+
+		if again == 'yes':
+			keep_going = True
+			print('')
+			print ("OK, let's do it again!")
+			print('')
+		else:
+			keep_going = False
+			print('')
+			print ("Thanks for using Chorder!")
+			print('')
 
 if __name__ == '__main__':
 	main()
