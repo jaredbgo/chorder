@@ -57,7 +57,7 @@ def key_finder(note, scale='major'):
 		raise Exception('Scale must be one of {}'.format(scale_list))
 
 def run_cl_app():
-	key = input("Enter the root: ")
+	key = input("Enter the root note: ")
 
 	scale = input("Enter the scale: ")
 
