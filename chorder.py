@@ -1,5 +1,6 @@
 
 import numpy as np
+from playsound import playsound
 
 def key_finder(note, scale='major'):
 	notes = ['A', 'A#/Bb', 'B/Cb', 'C', 'C#/Db', 'D', 'D#/Eb', 'E/Fb', 'F', 'F#/Gb', 'G', 'G#/Ab']
@@ -105,6 +106,7 @@ def run_cl_app():
 		print('')
 		print ("Thanks for using Chorder!")
 		print('')
+		playsound('strum.mp3')
 		return False
 
 
