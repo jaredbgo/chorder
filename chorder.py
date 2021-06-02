@@ -19,10 +19,10 @@ def key_finder(note, scale='major'):
 
 
 	if len(note) > 2:
-		raise Exception('Note must be at most 2 characters')
+		raise Exception('Root note must be at most 2 characters')
 
 	elif note not in valid_notes:
-		raise Exception('Note must be in {}'.format(valid_notes))
+		raise Exception('Root note must be in {}'.format(valid_notes))
 
 	if note in notes:
 		idx = notes.index(note)
