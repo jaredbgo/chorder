@@ -23,7 +23,7 @@ async def read_item(root_note,scale='major'):
 
     except Exception as e:
         ret_dict['success'] = False
-        ret_dict['error'] = e
+        ret_dict['error'] = str(e)
 
 
     return ret_dict
