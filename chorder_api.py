@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 from chorder import key_finder
+from fastapi import Query
 
 
-chorder = FastAPI()
+chorder = FastAPI(title="Chorder", description="Retrieve the chords of a key")
 
 @chorder.get("/chorder/")
-async def read_item(root_note,scale='major'):
+async def read_item(root_note: str=Query(..., description="root note of the scale e.g. 'C'"),
+                    scale: str=Query(default="major")):
 
     ret_dict = {}
     try:
