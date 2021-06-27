@@ -1,7 +1,7 @@
 # chorder
 Finding the chords of a key
 
-##Deploying the API using Docker
+## Deploying the API using Docker
 
 ```
 docker build -t chorderimage .
