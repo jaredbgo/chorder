@@ -114,7 +114,7 @@ def main():
 	print("")
 	print("Welcome to Chorder!")
 	print("")
-	playsound('strum.mp3')
+	playsound('../strum.mp3')
 	
 	keep_going = run_cl_app()
 
